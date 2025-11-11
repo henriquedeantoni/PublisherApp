@@ -17,21 +17,15 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	
 	private static Scene mainScene;
-
 			
 	@Override
 	public void start(Stage primaryStage) {
-		try {
-			
-	    	
-	    	URL fxmlUrl = getClass().getResource("/gui/AnalysisChart.fxml");
-	    	System.out.println("FXML URL = " + fxmlUrl);
+		try {		
+	    	//URL fxmlUrl = getClass().getResource("/gui/AnalysisChart.fxml");
+	    	//System.out.println("FXML URL = " + fxmlUrl);
 	    	
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/MainView.fxml"));
 			AnchorPane anchorPane = loader.load();
-			
-			//anchorPane.setFitToHeight(true);
-			//anchorPane.setFitToWidth(true);
 			
 			mainScene = new Scene(anchorPane);
 			primaryStage.setScene(mainScene);
@@ -40,7 +34,6 @@ public class Main extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 	
 	public static Scene getMainScene() {

@@ -18,32 +18,51 @@
                       <Menu mnemonicParsing="false" text="Arquivo">
                         <items>
                           <MenuItem fx:id="menuItemFileNew" mnemonicParsing="false" text="Novo" />
-                              <MenuItem fx:id="menuItemFileOpen" mnemonicParsing="false" text="Abrir" />
-                              <MenuItem fx:id="menuItemFileSave" mnemonicParsing="false" text="Salvar" />
+                          <MenuItem fx:id="menuItemFileOpen" mnemonicParsing="false" text="Abrir" />
+                          <MenuItem fx:id="menuItemFileSave" mnemonicParsing="false" text="Salvar" />
                         </items>
                       </Menu>
-                      <Menu mnemonicParsing="false" text="Analises">
+                      <Menu mnemonicParsing="false" text="Clientes">
                         <items>
-                          <MenuItem fx:id="menuItemAnalysisChart" mnemonicParsing="false" onAction="#onMenuItemAnalysisChartAction" text="Cartelas" />
+                          <MenuItem fx:id="findClientsMenu" mnemonicParsing="false" text="Buscar Clientes" />
+                          <MenuItem fx:id="registerClientMenu" mnemonicParsing="false" text="Cadastrar Clientes" />
+                          <MenuItem fx:id="editClientMenu" mnemonicParsing="false" text="Alterar Clientes" />
                         </items>
                       </Menu>
-                        <Menu mnemonicParsing="false" text="Estatísticas">
+                        <Menu mnemonicParsing="false" text="Produtos">
                            <items>
-                              <MenuItem fx:id="menuItemAnalysisStatistics" mnemonicParsing="false" text="Analises" />
+                              <MenuItem fx:id="findProductsMenu" mnemonicParsing="false" text="Buscar Produtos" />
+                              <MenuItem fx:id="registerProductMenu" mnemonicParsing="false" text="Cadastrar Produtos" />
+                              <MenuItem fx:id="editProductMenu" mnemonicParsing="false" text="Alterar Produtos" />
                            </items>
                         </Menu>
-                        <Menu mnemonicParsing="false" text="Utilidades">
+                        <Menu mnemonicParsing="false" text="Fornecedor">
                           <items>
-                            <MenuItem fx:id="menuGenerateFiles" mnemonicParsing="false" onAction="#onMenuItemGenerateFiles" text="Criar Arquivos" />
+                            <MenuItem fx:id="findSuppliersMenu" mnemonicParsing="false" text="Buscar Fornecedores" />
+                            <MenuItem fx:id="registerSupplierMenu" mnemonicParsing="false" text="Cadastrar Fornecedores" />
+                            <MenuItem fx:id="editSupplierMenu" mnemonicParsing="false" text="Alterar Fornecedores" />
                           </items>
                         </Menu>
-                      <Menu mnemonicParsing="false" text="Help">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="About" />
-                        </items>
-                      </Menu>
+                        <Menu mnemonicParsing="false" text="Postagens">
+                          <items>
+                            <MenuItem fx:id="findPosts" mnemonicParsing="false" text="Buscar Postagens" />
+                            <MenuItem fx:id="registerPost" mnemonicParsing="false" text="Nova Postagem" />
+                          </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Vendas">
+                          <items>
+                            <MenuItem fx:id="findSells" mnemonicParsing="false" text="Buscar Venda" />
+                            <MenuItem fx:id="registerSell" mnemonicParsing="false" text="Registrar Venda" />
+                          </items>
+                        </Menu>
+                      	<Menu mnemonicParsing="false" text="Help">
+                          <items>
+                          	<MenuItem mnemonicParsing="false" text="About" />
+                          </items>
+                      	</Menu>
                     </menus>
                   </MenuBar>
+                  <AnchorPane fx:id="contentArea" prefHeight="800.00" prefWidth="1200.00" />
                </children>
             </VBox>
          </content>

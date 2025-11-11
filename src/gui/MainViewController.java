@@ -29,34 +29,49 @@ public class MainViewController implements Initializable {
 	
 	@FXML
 	private MenuItem menuItemFileSave;
-	
-	@FXML
-	private MenuItem menuItemAnalysisChart;
 
 	@FXML
-	private MenuItem menuItemAnalysisStatistics;
+	private MenuItem findClientsMenu;
 
 	@FXML
-	private MenuItem menuGenerateFiles;
+	private MenuItem registerClientMenu;
+
+	@FXML
+	private MenuItem editClientMenu;
+
+	@FXML
+	private MenuItem findProductsMenu;
+
+	@FXML
+	private MenuItem registerProductMenu;
+
+	@FXML
+	private MenuItem editProductMenu;
+
+	@FXML
+	private MenuItem findSuppliersMenu;
+
+	@FXML
+	private MenuItem registerSupplierMenu;
+
+	@FXML
+	private MenuItem editSupplierMenu;
+
+	@FXML
+	private MenuItem findPosts;
+
+	@FXML
+	private MenuItem registerPost;
+
+	@FXML
+	private MenuItem findSells;
+
+	@FXML
+	private MenuItem registerSell;
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 	}
-	
-	/*
-	@FXML
-	public void onMenuItemAnalysisChartAction() {
-		loadViewChart("/gui/AnalysisChart.fxml", (AnalysisChartController controller) -> {
-			
-		});
-	}
-	
-	@FXML
-	public void onMenuItemGenerateFiles() {
-		loadView("/gui/GenerateFiles.fxml", (GenerateFilesController controller) -> {
-			
-		});
-	}*/
 	
 	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) {
 	    try {
