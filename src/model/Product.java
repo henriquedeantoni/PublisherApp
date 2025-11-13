@@ -8,7 +8,7 @@ public class Product {
 	private String productName;
 	private BigDecimal price;
 	private BigDecimal discount;
-	private String code;
+	private String sku;
 	private String category;
 	private String supplier;
 	private String supplierAdress;
@@ -17,14 +17,14 @@ public class Product {
 		super();
 	}
 
-	public Product(Long id, String productName, BigDecimal price, BigDecimal discount, String code, String category,
+	public Product(Long id, String productName, BigDecimal price, BigDecimal discount, String sku, String category,
 			String supplier, String supplierAdress) {
 		super();
 		this.id = id;
 		this.productName = productName;
 		this.price = price;
 		this.discount = discount;
-		this.code = code;
+		this.sku = sku;
 		this.category = category;
 		this.supplier = supplier;
 		this.supplierAdress = supplierAdress;
@@ -62,12 +62,12 @@ public class Product {
 		this.discount = discount;
 	}
 
-	public String getCode() {
-		return code;
+	public String getSku() {
+		return sku;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setSku(String code) {
+		this.sku = code;
 	}
 
 	public String getCategory() {
@@ -122,7 +122,7 @@ public class Product {
 	@Override
 	public String toString() {
 		return "product [id=" + id + ", productName=" + productName + ", price=" + price + ", discount=" + discount
-				+ ", code=" + code + ", category=" + category + ", supplier=" + supplier + ", supplierAdress="
+				+ ", sku code=" + sku + ", category=" + category + ", supplier=" + supplier + ", supplierAdress="
 				+ supplierAdress + "]";
 	}	
 }
