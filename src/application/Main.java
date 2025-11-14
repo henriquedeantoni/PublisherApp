@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
-import gui.util.CombAndConsts;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
