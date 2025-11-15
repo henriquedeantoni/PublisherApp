@@ -15,7 +15,7 @@
    <children>
       <VBox prefHeight="800.0" prefWidth="1200.0">
          <children>
-            <Label alignment="CENTER" prefHeight="39.0" prefWidth="339.0" text="Editar Cliente" />
+            <Label alignment="CENTER" prefHeight="39.0" prefWidth="339.0" text="Editar Produto" />
             <VBox prefHeight="74.0" prefWidth="1200.0">
                <children>
                   <HBox prefHeight="23.0" prefWidth="1200.0">
@@ -25,17 +25,17 @@
                               <Insets left="102.0" right="25.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Endereço">
+                        <RadioButton mnemonicParsing="false" text="SKU">
                            <HBox.margin>
                               <Insets right="25.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="Telefone">
+                        <RadioButton mnemonicParsing="false" text="Fornecedor">
                            <HBox.margin>
                               <Insets right="25.0" />
                            </HBox.margin>
                         </RadioButton>
-                        <RadioButton mnemonicParsing="false" text="CPF">
+                        <RadioButton mnemonicParsing="false" text="Categoria">
                            <HBox.margin>
                               <Insets right="25.0" />
                            </HBox.margin>
@@ -65,9 +65,11 @@
             </VBox>
             <TableView prefHeight="189.0" prefWidth="499.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="Nome" />
-                <TableColumn prefWidth="75.0" text="Telefone" />
-                  <TableColumn prefWidth="348.0" text="Endereço" />
+                <TableColumn prefWidth="229.0" text="Nome" />
+                <TableColumn minWidth="0.0" prefWidth="136.0" text="SKU" />
+                  <TableColumn prefWidth="443.0" text="Fornecedor" />
+                  <TableColumn prefWidth="166.0" text="Categoria" />
+                  <TableColumn minWidth="8.0" prefWidth="124.0" text="Ultima atualização" />
               </columns>
                <VBox.margin>
                   <Insets left="50.0" right="50.0" top="20.0" />
@@ -75,15 +77,15 @@
             </TableView>
             <VBox prefHeight="295.0" prefWidth="1100.0">
                <children>
-                  <Label text="Nome Completo:" />
+                  <Label text="Nome:" />
                   <TextField prefHeight="25.0" prefWidth="521.0">
                      <VBox.margin>
                         <Insets bottom="4.0" top="4.0" />
                      </VBox.margin>
                   </TextField>
-                  <Label text="Telefone:" />
+                  <Label text="SKU:" />
                   <TextField />
-                  <Label text="Rua:" />
+                  <Label text="Fornecedor" />
                   <TextField />
                   <Label text="Cidade:" />
                   <TextField />
@@ -100,6 +102,11 @@
                </VBox.margin>
             </VBox>
             <Button mnemonicParsing="false" text="Salvar Modificações">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="60.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" text="Desativar / Obsoletar">
                <VBox.margin>
                   <Insets left="60.0" />
                </VBox.margin>
