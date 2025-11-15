@@ -3,13 +3,16 @@
 <?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="548.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ViewController">
    <children>
-      <VBox layoutX="42.0" layoutY="57.0" prefHeight="336.0" prefWidth="471.0">
+      <VBox layoutX="42.0" layoutY="57.0" prefHeight="567.0" prefWidth="471.0">
          <children>
             <Label text="Nome" />
             <TextField prefHeight="25.0" prefWidth="521.0">
@@ -17,15 +20,41 @@
                   <Insets bottom="4.0" top="4.0" />
                </VBox.margin>
             </TextField>
+            <Label text="Descrição" />
+            <TextField />
+            <Label text="SKU" />
+            <TextField />
+            <Label text="Fornecedor" />
+            <TextField />
             <Label text="Data Cadastrada:" />
             <TextField />
-            <Label text="Descrição" />
+            <Label text="Características" />
+            <TextArea prefHeight="100.0" prefWidth="466.0" />
+            <Label text="Observações" />
             <TextArea prefHeight="200.0" prefWidth="200.0" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
-      <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="298.0" text="CADASTRAR CATEGORIA" />
+      <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="298.0" text="BUSCAR PRODUTOS" />
+      <TabPane layoutX="538.0" layoutY="57.0" prefHeight="558.0" prefWidth="613.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Imagem #1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="420.0" fitWidth="545.0" layoutX="31.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Imagem #2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>
