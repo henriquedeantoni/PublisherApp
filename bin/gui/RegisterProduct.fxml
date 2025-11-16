@@ -37,7 +37,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
-      <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="298.0" text="BUSCAR PRODUTOS" />
+      <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="298.0" text="CADASTRAR PRODUTOS" />
       <TabPane layoutX="538.0" layoutY="57.0" prefHeight="558.0" prefWidth="613.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Imagem #1">
