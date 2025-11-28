@@ -1,7 +1,10 @@
 package gui.util;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
 
 public class ExportFilesCSV {
     // Exporta uma matriz 2D para um arquivo CSV
