@@ -7,7 +7,7 @@ public class transformToHtml {
 	}
 	
 	public static String textToTitleH(String title, Integer height) {
-		return "<h" + height.toString() + ">" + title + "<h" + height.toString() + ">";
+		return "<h" + height.toString() + ">" + title + "<h" + height + ">";
 	}
 	
 	public String textToLink(String refUrl, String text) {
@@ -19,7 +19,7 @@ public class transformToHtml {
 	}
 	
 	public String linkToButton(String refUrl, String text) {
-		"<a href=\""+ refUrl + "\"" + "class=\"btn\">" + text + "</a>\r\n"
+		return "<a href=\" "+ refUrl + "\"" + "class=\"btn\">" + text + "</a>\r\n"
 		+ "\r\n"
 		+ "<!-- CSS -->\r\n"
 		+ "<style>\r\n"
@@ -32,6 +32,14 @@ public class transformToHtml {
 		+ "    border: 1px solid #333;\r\n"
 		+ "  }\r\n"
 		+ "  .btn:hover { opacity: 0.9; }\r\n"
-		+ "</style>"
+		+ "</style>";
+	}
+	
+	public String image(String imageSource, String altText) {
+		return "<img src=\"" + imageSource + "\"" + " alt=" + "\"" + altText + "\"" + ">";
+	}
+	
+	public String image(String imageSource, String altText, Integer height, Integer width) {
+		return "<img src=\"" + imageSource + "\"" + " alt=" + "\"" + altText + "\""  + " height=\"" + height + "\""  + "width=\"" + width + "\"" + ">";
 	}
 }
