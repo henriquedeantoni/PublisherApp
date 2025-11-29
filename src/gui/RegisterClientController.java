@@ -17,15 +17,19 @@ import java.util.Set;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Client;
+import services.ClientService;
 import javafx.event.ActionEvent;
 
 public class RegisterClientController implements Initializable {
+	
+	private ClientService clientService = new ClientService();
 	
     @FXML 
     private Button registerClientButton;
@@ -70,6 +74,18 @@ public class RegisterClientController implements Initializable {
     	
     	Client client = new Client(firstName, lastName, addressStreet, clientTel, clientTel,
     			cpfNumber);
+    	
+    	boolean success = clientService.sendClientData(client);
+    	
+    	if(success) showAlert("Sucesso!", "Client enviado com sucesso", Alert.AlertType.INFORMATION);
+    	else showAlert("Erro", "Falha no envio das informações, contate o administrador", Alert.AlertType.INFORMATION);
+    }
+    
+    private void showAlert(String title, String message, Alert.AlertType type) {
+    	Alert alert = new Alert(type);
+    	alert.setTitle(message);
+    	alert.setContentText(message);
+    	alert.show();
     }
     
     @FXML

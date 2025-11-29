@@ -9,6 +9,7 @@ public class Client {
 	private String telNumber;
 	private String cellNumber;
 	private String cpf;
+	private String gender;
 		
 	public Client() {
 		super();
@@ -22,6 +23,7 @@ public class Client {
 		this.address = address;
 		this.telNumber = telNumber;
 		this.cpf = cpf;
+		this.gender = gender;
 	}
 
 	public Long getId() {
@@ -75,6 +77,15 @@ public class Client {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
 
 	@Override
 	public int hashCode() {
