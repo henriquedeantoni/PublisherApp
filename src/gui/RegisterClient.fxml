@@ -12,16 +12,18 @@
       <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="298.0" text="CADASTRAR CLIENTES" />
       <VBox layoutX="54.0" layoutY="43.0" prefHeight="501.0" prefWidth="718.0">
          <children>
-            <Label text="Nome Completo:" />
-            <TextField fx:id="completeNameTextField" prefHeight="25.0" prefWidth="521.0">
+            <Label text="Primeiro Nome:" />
+            <TextField fx:id="firstNameTextField" prefHeight="26.0" prefWidth="362.0">
                <VBox.margin>
                   <Insets bottom="4.0" top="4.0" />
                </VBox.margin>
             </TextField>
+            <Label text="Sobrenome:" />
+            <TextField fx:id="lastNameTextField" />
             <Label text="Telefone:" />
             <TextField fx:id="clientTelTextField" />
             <Label text="Rua:" />
-            <TextField fx:id="addressStreetTelTextField" />
+            <TextField fx:id="addressStreetTextField" />
             <Label text="Cidade:" />
             <TextField fx:id="cityTextField" />
             <Label text="Número:" />

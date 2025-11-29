@@ -22,6 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import model.Client;
 import javafx.event.ActionEvent;
 
 public class RegisterClientController implements Initializable {
@@ -30,13 +31,16 @@ public class RegisterClientController implements Initializable {
     private Button registerClientButton;
     
     @FXML 
-    private TextField completeNameTextField;
+    private TextField firstNameTextField;
+    
+    @FXML 
+    private TextField lastNameTextField;
     
     @FXML 
     private TextField clientTelTextField;
     
     @FXML 
-    private TextField addressStreetTelTextField;
+    private TextField addressStreetTextField;
     
     @FXML 
     private TextField cityTextField;
@@ -46,47 +50,26 @@ public class RegisterClientController implements Initializable {
     
     @FXML 
     private TextField cpfTextField;
-    
-    
-    public int[][] matrizOccurrenceThreeNumbers;
-    
-    public void setMatrizOccurrenceThreeNumbers(int[][] matrizOccurrenceThreeNumbers) {
-    	this.matrizOccurrenceThreeNumbers = matrizOccurrenceThreeNumbers;
-    }
+        
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
         
 	}
-    
-    private void drawGrid(Set<Integer> sortedNumbers) {
-
-    }
-    
-    private void readCSV(File file) {
-
-    }
-    
-    private void selectFileCSV() {
-
-    }
-    
-    private void redrawActualGrid() {
-	
-    }
-    
-    private void showLastGame() {
-
-    }
-    
-    private void showNextGame() {
-
-    }
 
     @FXML
-    private void onSelectMostFourNum(ActionEvent event) {
-
+    private void onRegisterClientButton(ActionEvent event) {
+    	String firstName = firstNameTextField.getText();
+    	String lastName = lastNameTextField.getText();
+    	String clientTel = clientTelTextField.getText();
+    	String addressStreet = addressStreetTextField.getText();
+    	String cityText = cityTextField.getText();
+    	String numberAddress = numberAddressTextField.getText();
+    	String cpfNumber = cpfTextField.getText();
+    	
+    	Client client = new Client(firstName, lastName, addressStreet, clientTel, clientTel,
+    			cpfNumber);
     }
     
     @FXML

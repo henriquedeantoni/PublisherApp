@@ -9,31 +9,23 @@ public class Client {
 	private String telNumber;
 	private String cellNumber;
 	private String cpf;
-	private String gender;
 		
 	public Client() {
 		super();
 	}
 
-	public Client(Long id, String firstName, String lastName, String address, String telNumber, String cellNumber,
+	public Client( String firstName, String lastName, String address, String telNumber,
 			String cpf, String gender) {
 		super();
-		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
 		this.telNumber = telNumber;
-		this.cellNumber = cellNumber;
 		this.cpf = cpf;
-		this.gender = gender;
 	}
 
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -82,14 +74,6 @@ public class Client {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
 	}
 
 	@Override
