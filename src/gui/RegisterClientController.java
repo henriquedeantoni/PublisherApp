@@ -1,27 +1,18 @@
 package gui;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.Set;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Client;
 import services.ClientService;
@@ -54,12 +45,12 @@ public class RegisterClientController implements Initializable {
     
     @FXML 
     private TextField cpfTextField;
-        
     
+    @FXML
+    private Button backButton;
+        
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-        
 	}
 
     @FXML
@@ -71,9 +62,9 @@ public class RegisterClientController implements Initializable {
     	String cityText = cityTextField.getText();
     	String numberAddress = numberAddressTextField.getText();
     	String cpfNumber = cpfTextField.getText();
-    	
-    	Client client = new Client(firstName, lastName, addressStreet, clientTel, clientTel,
-    			cpfNumber);
+    	    	
+    	Client client = new Client(firstName, lastName, addressStreet, clientTel, cpfNumber,
+    			"");
     	
     	boolean success = clientService.sendClientData(client);
     	
@@ -89,8 +80,11 @@ public class RegisterClientController implements Initializable {
     }
     
     @FXML
-    private void onSelectMostThreeNum(ActionEvent event) {
-
+    private void onBackButton(ActionEvent event) throws IOException {
+    	Parent root = FXMLLoader.load(getClass().getResource("MainView.fxml"));
+    	Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	
+    	stage.setScene(new Scene(root));
+    	stage.show();
     }
-
 }

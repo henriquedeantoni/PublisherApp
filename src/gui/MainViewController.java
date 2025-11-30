@@ -69,38 +69,52 @@ public class MainViewController implements Initializable {
 	@FXML
 	private MenuItem registerSell;
 	
+    @FXML
+    private AnchorPane contentArea;
+		
+	@FXML
+	public void onMenuItemRegisterClient() {
+		loadViewMenuItem("/gui/RegisterClient.fxml", RegisterClientController.class);
+	}
+	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 	}
 	
-	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) {
+	private void loadViewMenuItem(String fxmlPath, Class<?> controllerClass) {
 	    try {
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
-	        Parent newRoot = loader.load();
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
 
-	        Scene mainScene = Main.getMainScene();
-	        
-	        AnchorPane mainRoot = (AnchorPane) mainScene.getRoot();
+	        loader.setControllerFactory(param -> {
+	            if (param == controllerClass) {
+	                try {
+	                    return controllerClass.getDeclaredConstructor().newInstance();
+	                } catch (Exception e) {
+	                    throw new RuntimeException(e);
+	                }
+	            }
+	            throw new IllegalArgumentException("Controller não esperado: " + param);
+	        });
 
-	        mainRoot.getChildren().clear();
-	        mainRoot.getChildren().add(newRoot);
+	        Parent newView = loader.load();
 
-	        AnchorPane.setTopAnchor(newRoot, 0.0);
-	        AnchorPane.setRightAnchor(newRoot, 0.0);
-	        AnchorPane.setBottomAnchor(newRoot, 0.0);
-	        AnchorPane.setLeftAnchor(newRoot, 0.0);
+	        Object controller = loader.getController();
+	        System.out.println("Controller carregado: " + controller.getClass().getSimpleName());
 
-	        T controller = loader.getController();
-	        if (initializingAction != null) {
-	            initializingAction.accept(controller);
-	        }
+	        contentArea.getChildren().clear();
+	        contentArea.getChildren().add(newView);
 
-	    } catch (IOException e) {
-	        Alerts.showAlert("IO Exception", "Erro ao carregar view", e.getMessage(), AlertType.ERROR);
+	        AnchorPane.setTopAnchor(newView, 0.0);
+	        AnchorPane.setRightAnchor(newView, 0.0);
+	        AnchorPane.setBottomAnchor(newView, 0.0);
+	        AnchorPane.setLeftAnchor(newView, 0.0);
+
+	    } catch (IOException ex) {
+	        ex.printStackTrace();
 	    }
 	}
-	
-	private synchronized <T> void loadViewChart(String absoluteName, Consumer<T> initializingAction) {
+
+	private synchronized <T> void loadView(String absoluteName, Consumer<T> initializingAction) {
 	    try {
 
 	        FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
@@ -128,7 +142,9 @@ public class MainViewController implements Initializable {
 	        initializingAction.accept(controller);
 
 	    } catch (IOException e) {
+	    	e.printStackTrace();
 	        Alerts.showAlert("IO Exception", "Erro ao carregar a View" + e.getMessage(), e.getMessage(), AlertType.ERROR);
 	    }
+	
 	}
 }

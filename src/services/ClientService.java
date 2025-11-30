@@ -16,6 +16,7 @@ public class ClientService {
 	
 	public boolean sendClientData(Client client) {
 		try {
+			
 			String json = JsonUtil.clientModelToJson(client);
 			
 			HttpRequest request = HttpRequest.newBuilder()

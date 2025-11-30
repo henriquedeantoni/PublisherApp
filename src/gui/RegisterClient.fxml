@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="registerClientButtob" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ViewController">
+<AnchorPane fx:id="registerClientButtob" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RegisterClientController">
    <children>
       <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="298.0" text="CADASTRAR CLIENTES" />
-      <VBox layoutX="54.0" layoutY="43.0" prefHeight="501.0" prefWidth="718.0">
+      <VBox layoutX="54.0" layoutY="43.0" prefHeight="483.0" prefWidth="718.0">
          <children>
             <Label text="Primeiro Nome:" />
             <TextField fx:id="firstNameTextField" prefHeight="26.0" prefWidth="362.0">
@@ -30,11 +34,24 @@
             <TextField fx:id="numberAddressTextField" />
             <Label text="CPF:" />
             <TextField fx:id="cpfTextField" />
-            <Button fx:id="registerClientButton" mnemonicParsing="false" text="Cadastrar Cliente">
+            <Button fx:id="registerClientButton" mnemonicParsing="false" onAction="#onRegisterClientButton" prefHeight="40.0" prefWidth="117.0" text="Cadastrar Cliente">
                <VBox.margin>
-                  <Insets top="8.0" />
+                  <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
             </Button>
+            <Pane prefHeight="66.0" prefWidth="698.0" />
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="527.0" minWidth="10.0" prefWidth="527.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="344.0" minWidth="10.0" prefWidth="171.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBackButton" text="Voltar" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+               </children>
+            </GridPane>
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
