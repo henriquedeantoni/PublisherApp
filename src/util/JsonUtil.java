@@ -8,7 +8,7 @@ public class JsonUtil {
 		return "{"
                 + "\"firstName\":\"" + sanitizeValue(client.getFirstName()) + "\","
                 + "\"lastName\":\"" + sanitizeValue(client.getLastName()) + "\","
-                + "\"address\":\"" + sanitizeValue(client.getAddress()) + "\","
+                + "\"streetAddress\":\"" + sanitizeValue(client.getAddress()) + "\","
                 + "\"telNumber\":\"" + sanitizeValue(client.getTelNumber()) + "\","
                 + "\"cpf\":\"" + sanitizeValue(client.getCpf()) + "\","
                 + "\"gender\":\"" + sanitizeValue(client.getGender()) + "\","
