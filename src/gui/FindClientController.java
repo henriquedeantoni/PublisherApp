@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import services.ClientService;
 import javafx.event.ActionEvent;
 
 public class FindClientController implements Initializable {
@@ -67,7 +68,9 @@ public class FindClientController implements Initializable {
 
     @FXML
     private void onSearchButton(ActionEvent event) {
-    		
+    	final ClientService clientService = new ClientService();
+    	
+    	
     }
     
     @FXML

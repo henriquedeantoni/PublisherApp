@@ -4,13 +4,14 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
 
 import model.Client;
 import util.JsonUtil;
 
 public class ClientService {
 
-	private static final String API_DEVELOP = "http://localhost:8080/api/clients";
+	private static final String API_DEVELOP = "http://localhost:8080";
 	
 	private final HttpClient httpClient =  HttpClient.newHttpClient();
 	
@@ -26,7 +27,7 @@ public class ClientService {
 			String json = JsonUtil.clientModelToJson(client);
 			
 			HttpRequest request = HttpRequest.newBuilder()
-					.uri(URI.create(API_DEVELOP))
+					.uri(URI.create(API_DEVELOP + "/api/clients"))
 					.header("Content-Type", "application/json")
 					.POST(HttpRequest.BodyPublishers.ofString(json))
 					.build();
@@ -49,6 +50,26 @@ public class ClientService {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	public List<Client> findAllClients(){
+		try {
+			
+			HttpRequest request = HttpRequest.newBuilder()
+					.uri(URI.create(API_DEVELOP + "/api/clients"))
+					.header("Content-Type", "application/json")
+					.GET()
+					.build();
+			
+			HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		
+		return null;
 	}
 
 	public String getStatusMessage() {
