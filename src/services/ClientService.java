@@ -10,11 +10,17 @@ import util.JsonUtil;
 
 public class ClientService {
 
-	private static final String API_DEVELOP = "http://localhost:8080";
+	private static final String API_DEVELOP = "http://localhost:8080/api/clients";
 	
 	private final HttpClient httpClient =  HttpClient.newHttpClient();
 	
-	public boolean sendClientData(Client client) {
+	private String statusMessage;
+	
+	private String bodyResponse;
+	
+	private int statusCode;
+	
+	public boolean registerClientData(Client client) {
 		try {
 			
 			String json = JsonUtil.clientModelToJson(client);
@@ -27,6 +33,16 @@ public class ClientService {
 			
 			HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 			
+			setStatusMessage(HttpUtils.msgStatusResponse(response.statusCode()));
+			setBodyResponse(response.body());
+			
+			try {
+				setStatusCode(response.statusCode());
+			} catch(Exception statusException)
+			{
+				statusException.getStackTrace();
+			}
+			
 			return response.statusCode() == 200 || response.statusCode() == 201;
 			
 		} catch(Exception e) {
@@ -34,4 +50,29 @@ public class ClientService {
 			return false;
 		}
 	}
+
+	public String getStatusMessage() {
+		return statusMessage;
+	}
+
+	public void setStatusMessage(String statusMessage) {
+		this.statusMessage = statusMessage;
+	}
+
+	public String getBodyResponse() {
+		return bodyResponse;
+	}
+
+	public void setBodyResponse(String bodyResponse) {
+		this.bodyResponse = bodyResponse;
+	}
+
+	public int getStatusCode() {
+		return statusCode;
+	}
+
+	public void setStatusCode(int statusCode) {
+		this.statusCode = statusCode;
+	}
+
 }
