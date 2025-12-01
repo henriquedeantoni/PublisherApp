@@ -1,48 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ViewController">
    <children>
-      <Button layoutX="56.0" layoutY="53.0" mnemonicParsing="false" text="Buscar" />
-      <TextField layoutX="122.0" layoutY="53.0" prefHeight="25.0" prefWidth="431.0" />
-      <TableView layoutX="56.0" layoutY="132.0" prefHeight="411.0" prefWidth="499.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Nome" />
-          <TableColumn prefWidth="75.0" text="Telefone" />
-            <TableColumn prefWidth="348.0" text="Endereço" />
-        </columns>
-      </TableView>
-      <VBox layoutX="579.0" layoutY="133.0" prefHeight="411.0" prefWidth="537.0">
+      <VBox prefHeight="800.0" prefWidth="1200.0">
          <children>
-            <Label text="Nome Completo:" />
-            <TextField prefHeight="25.0" prefWidth="521.0">
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="298.0" text="BUSCAR CLIENTES" />
+            <HBox prefHeight="31.0" prefWidth="1160.0">
+               <children>
+                  <RadioButton fx:id="firstNameRadioButton" mnemonicParsing="false" text="Nome">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="lastNameRadioButton" mnemonicParsing="false" text="Sobrenome">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="telRadioButton" mnemonicParsing="false" text="Telefone">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="cityRadioButton" mnemonicParsing="false" text="Cidade">
+                     <HBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </HBox.margin>
+                  </RadioButton>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="60.0" top="5.0" />
+               </padding>
                <VBox.margin>
-                  <Insets bottom="4.0" top="4.0" />
+                  <Insets top="15.0" />
                </VBox.margin>
-            </TextField>
-            <Label text="Telefone:" />
-            <TextField />
-            <Label text="Rua:" />
-            <TextField />
-            <Label text="Cidade:" />
-            <TextField />
-            <Label text="Número:" />
-            <TextField />
-            <Label text="CPF:" />
-            <TextField />
+            </HBox>
+            <HBox prefHeight="45.0" prefWidth="1160.0">
+               <children>
+                  <Button fx:id="searchButton" mnemonicParsing="false" text="Buscar" />
+               </children>
+            </HBox>
+            <HBox prefHeight="509.0" prefWidth="1160.0">
+               <children>
+                  <TableView fx:id="clientListTableView" prefHeight="280.0" prefWidth="704.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Nome" />
+                      <TableColumn prefWidth="75.0" text="Telefone" />
+                        <TableColumn prefWidth="348.0" text="Endereço" />
+                    </columns>
+                  </TableView>
+                  <VBox prefHeight="280.0" prefWidth="452.0">
+                     <children>
+                        <Label text="Nome:" />
+                        <TextField fx:id="firstNameTextField" editable="false" prefHeight="25.0" prefWidth="521.0">
+                           <VBox.margin>
+                              <Insets bottom="4.0" top="4.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label text="Sobrenome" />
+                        <TextField fx:id="lastNameTextField" editable="false" />
+                        <Label text="Telefone:" />
+                        <TextField fx:id="telTextField" editable="false" />
+                        <Label text="Endereço" />
+                        <TextField fx:id="addressTextField" editable="false" />
+                        <Label text="Rua:" />
+                        <TextField fx:id="streetNameTextField" editable="false" />
+                        <Label text="Cidade:" />
+                        <TextField fx:id="cityTextField" editable="false" />
+                        <Label text="Sexo:" />
+                        <TextField fx:id="genderTextField" editable="false" />
+                        <Label text="CPF:" />
+                        <TextField fx:id="cpfNumberTextField" editable="false" />
+                        <Label text="Label:" />
+                        <TextField editable="false" />
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="editClientRedirectionButton" alignment="CENTER" mnemonicParsing="false" text="Editar Informações Cliente" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+            <TextArea fx:id="responseApiMessageArea" prefHeight="129.0" prefWidth="1160.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </TextArea>
          </children>
          <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets left="20.0" right="20.0" top="10.0" />
          </padding>
       </VBox>
-      <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="298.0" text="BUSCAR FORNECEDORES" />
    </children>
 </AnchorPane>
