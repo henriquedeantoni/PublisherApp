@@ -71,6 +71,24 @@ public class ClientService {
 		
 		return null;
 	}
+	
+	public List<Client> findClients(String searchContext, String termSearched){
+		try {
+			
+			HttpRequest request = HttpRequest.newBuilder()
+					.uri(URI.create(API_DEVELOP + "/api/clients"))
+					.header("Content-Type", "application/json")
+					.header(searchContext, termSearched)
+					.GET()
+					.build();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+				
+		return null;
+	}
 
 	public String getStatusMessage() {
 		return statusMessage;

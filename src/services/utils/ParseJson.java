@@ -1,7 +1,10 @@
 package services.utils;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import model.Client;
 
 public class ParseJson {
 	
@@ -53,6 +56,11 @@ public class ParseJson {
 		}
 		
 		return resultJson;
+	}
+	
+	public static List<Client> mapperClient(Map<String, Object> object){
+		
+		return null;
 	}
 
 }
