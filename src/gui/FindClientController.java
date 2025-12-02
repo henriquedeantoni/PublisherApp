@@ -22,6 +22,9 @@ public class FindClientController implements Initializable {
     @FXML 
     private Button editClientRedirectionButton;
     
+    @FXML
+    private TextField termSearchTextField;
+    
     @FXML 
     private TextField firstNameTextField;
     
@@ -75,7 +78,20 @@ public class FindClientController implements Initializable {
     
     @FXML
     private void onEditClientRedirectionButton(ActionEvent event) {
+    	ClientService clientService = new ClientService();
     	
+    	try {
+    		
+    		if(termSearchTextField.getText() == "" || termSearchTextField.getText() == null)
+    		{
+    			clientService.findAllClients();
+    		} else {
+    			
+    		}
+    		
+    	} catch(Exception ex) {
+    		
+    	}
     }
     
     private void showAlert(String title, String message, Alert.AlertType type) {
