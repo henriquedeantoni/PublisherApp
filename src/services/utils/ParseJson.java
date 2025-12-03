@@ -1,5 +1,6 @@
 package services.utils;
 
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,9 +59,38 @@ public class ParseJson {
 		return resultJson;
 	}
 	
-	public static List<Client> mapperClient(Map<String, Object> object){
+	public static Client mapperClient(Map<String, Object> object){
+		
+		Field[] fields = Client.class.getDeclaredFields();
+		boolean noPresent = false;
+		
+		for (Field field : fields) {
+			String fieldName = field.getName();
+			if(!object.containsKey(fieldName)) {
+				noPresent = true;
+			}
+		}
+		
+		if(noPresent) {
+			return null;
+		}
+		
+		for (Field field : fields) {
+			String fieldName = field.getName();
+			
+		}
 		
 		return null;
 	}
+	
+	public static List<Client>  mapperClientList(Map<String, Object> object){
+		
+		
+		
+		return null;
+	}	
+	
+	public static String clientJsonList = "{\"content\":[{\"clientId\":1,\"firstName\":\"John\",\"lastName\":\"Fruciantte\",\"address\":\"AlamedaStreet,458,Stpters\",\"telNumber\":\"05511332154875\",\"cellNumber\":\"0551195487454\",\"cpf\":\"4654635132465\",\"gender\":\"M\"},{\"clientId\":2,\"firstName\":\"Peter\",\"lastName\":\"Fredton\",\"address\":\"ParkAvenue,985,NewCity\",\"telNumber\":\"05511321549876\",\"cellNumber\":\"05511956447842\",\"cpf\":\"89432135435\",\"gender\":\"M\"},{\"clientId\":3,\"firstName\":\"Sara\",\"lastName\":\"Alburquerue\",\"address\":\"ParkAvenue,Yorkton\",\"telNumber\":\"05511321549876\",\"cellNumber\":\"05511956447842\",\"cpf\":\"89432135435\",\"gender\":\"F\"},],\"pageNumber\":0,\"pageSize\":60,\"totalElements\":3,\"totalPages\":1,\"lastPage\":true}";
 
+	public static String clientJson = "\"clientId\":1,\"firstName\":\"John\",\"lastName\":\"Fruciantte\",\"address\":\"AlamedaStreet,458,Stpters\",\"telNumber\":\"05511332154875\",\"cellNumber\":\"0551195487454\",\"cpf\":\"4654635132465\",\"gender\":\"M\"}";
 }
