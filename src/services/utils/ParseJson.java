@@ -59,7 +59,9 @@ public class ParseJson {
 		return resultJson;
 	}
 	
-	public static Client mapperClient(Map<String, Object> object){
+	public static Client mapperClient(Map<String, Object> object) throws IllegalArgumentException, IllegalAccessException{
+		
+		Client client = new Client();
 		
 		Field[] fields = Client.class.getDeclaredFields();
 		boolean noPresent = false;
@@ -73,23 +75,28 @@ public class ParseJson {
 		
 		if(noPresent) {
 			return null;
+		} else {
+			for (Field field : fields) {
+				field.setAccessible(true);
+				
+				String fieldName = field.getName();
+				for(String key : object.keySet()) {
+					if(fieldName.equals(key))
+					{
+						field.set(client, object.get(key));
+					}
+				}
+			}
 		}
 		
-		for (Field field : fields) {
-			String fieldName = field.getName();
-			
-		}
-		
-		return null;
+		return client;
 	}
 	
 	public static List<Client>  mapperClientList(Map<String, Object> object){
 		
-		
-		
 		return null;
 	}	
-	
+		
 	public static String clientJsonList = "{\"content\":[{\"clientId\":1,\"firstName\":\"John\",\"lastName\":\"Fruciantte\",\"address\":\"AlamedaStreet,458,Stpters\",\"telNumber\":\"05511332154875\",\"cellNumber\":\"0551195487454\",\"cpf\":\"4654635132465\",\"gender\":\"M\"},{\"clientId\":2,\"firstName\":\"Peter\",\"lastName\":\"Fredton\",\"address\":\"ParkAvenue,985,NewCity\",\"telNumber\":\"05511321549876\",\"cellNumber\":\"05511956447842\",\"cpf\":\"89432135435\",\"gender\":\"M\"},{\"clientId\":3,\"firstName\":\"Sara\",\"lastName\":\"Alburquerue\",\"address\":\"ParkAvenue,Yorkton\",\"telNumber\":\"05511321549876\",\"cellNumber\":\"05511956447842\",\"cpf\":\"89432135435\",\"gender\":\"F\"},],\"pageNumber\":0,\"pageSize\":60,\"totalElements\":3,\"totalPages\":1,\"lastPage\":true}";
 
 	public static String clientJson = "\"clientId\":1,\"firstName\":\"John\",\"lastName\":\"Fruciantte\",\"address\":\"AlamedaStreet,458,Stpters\",\"telNumber\":\"05511332154875\",\"cellNumber\":\"0551195487454\",\"cpf\":\"4654635132465\",\"gender\":\"M\"}";
